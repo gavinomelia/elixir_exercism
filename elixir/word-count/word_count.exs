@@ -6,6 +6,8 @@ defmodule Words do
   """
 
   def count(sentence) do
-
+    ignore_punctuation_and_case = sentence |> String.downcase |> String.replace(~r([^[:alpha:]|\d-])u, " ")
+    split = String.split(ignore_punctuation_and_case)
+    Map.new(split, fn(x) -> {x, Enum.count(split, fn(c) -> c == x end)} end)
   end
 end
