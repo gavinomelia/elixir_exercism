@@ -26,17 +26,17 @@ defmodule ListOps do
 
 
 
-  def map(list, fun) do
-    do_map(list, [], fun)
-  end
-
-  def do_map([], acc, fun) do
-    acc
-  end
-
-  def do_map([head|tail], acc, fun) do
-    do_map(tail, [head|acc], fun)
-  end
+  # def map(list, fun) do
+  #   do_map(list, [], fun)
+  # end
+  #
+  # def do_map([], acc, fun) do
+  #   acc
+  # end
+  #
+  # def do_map([head|tail], acc, fun) do
+  #   do_map(tail, [head|acc], fun)
+  # end
   #
   # def filter(l, f) do
   # end
