@@ -8,7 +8,7 @@ defmodule ListOps do
     acc
   end
 
-  defp do_count([head|tail], acc) do
+  defp do_count([_head|tail], acc) do
     do_count(tail, acc + 1)
   end
 
@@ -26,18 +26,18 @@ defmodule ListOps do
 
 
 
-  # def map(list, fun) do
-  #   do_map(list, [], fun)
-  # end
-  #
-  # def do_map([], acc, fun) do
-  #   acc
-  # end
-  #
-  # def do_map([head|tail], acc, fun) do
-  #   do_map(tail, [head|acc], fun)
-  # end
-  #
+  def map(list, fun) do
+    do_map(list, [], fun)
+  end
+
+  def do_map([], acc, _fun) do
+    reverse(acc)
+  end
+
+  def do_map([head|tail], acc, fun) do
+    do_map(tail, [(fun.(head))|acc], fun)
+  end
+
   # def filter(l, f) do
   # end
   #
