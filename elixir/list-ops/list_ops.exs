@@ -24,8 +24,6 @@ defmodule ListOps do
     do_reverse(tail, [head|acc])
   end
 
-
-
   def map(list, fun) do
     do_map(list, [], fun)
   end
@@ -67,36 +65,24 @@ defmodule ListOps do
     do_reduce(tail, (fun.(head, acc)), fun)
   end
 
-
-# L.append([1,2,3], [4,5]) == [1,2,3,4,5]
-
   def append(a, b) do
     do_append(a, b, [])
   end
 
-  def do_append([], [], acc) do
-    acc
+  defp do_append([], [], acc) do
+    acc |> reverse
   end
 
-  def do_append([], b, []) do
-    b
+  defp do_append([], [bhead|btail], acc) do
+    do_append([], btail, [bhead|acc])
   end
 
-  def do_append(a, [], []) do
-    a
+  defp do_append([ahead|atail], [], acc) do
+    do_append(atail, [], [ahead|acc])
   end
 
-  def do_append([], b, acc) do
-    [acc|b]
-  end
-
-  def do_append(a, [], acc) do
-    [acc|a]
-  end
-
-  def do_append([ahead|atail], [bhead, btail], acc) do
-    head = [ahead|bhead]
-    do_append(atail, btail, [acc|head])
+  defp do_append([ahead|atail], b, acc) do
+    do_append(atail, b, [ahead|acc])
   end
 
   # def concat(ll) do

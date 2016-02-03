@@ -93,12 +93,10 @@ defmodule ListOpsTest do
     assert L.append([1,2,3,4], []) == [1,2,3,4]
   end
 
-  @tag :pending
   test "append of non-empty lists" do
     assert L.append([1,2,3], [4,5]) == [1,2,3,4,5]
   end
 
-  @tag :pending
   test "append of huge lists" do
     assert L.append(Enum.to_list(1..1_000_000), Enum.to_list(1_000_001..2_000_000)) ==
       Enum.to_list(1..2_000_000)
