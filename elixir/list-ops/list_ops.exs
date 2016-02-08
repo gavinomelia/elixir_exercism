@@ -85,6 +85,15 @@ defmodule ListOps do
     do_append(atail, b, [ahead|acc])
   end
 
-  # def concat(ll) do
-  # end
+  def concat(list_of_lists) do
+    do_concat(list_of_lists, [])
+  end
+
+  defp do_concat([], acc) do
+    acc
+  end
+
+  defp do_concat([head|[other_head|tail]], acc) do
+    do_concat(tail, append(acc, append(head, other_head)))
+  end
 end
