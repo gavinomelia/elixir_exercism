@@ -8,7 +8,7 @@ defmodule Words do
 
   defp count_map(split) do
     Map.new(split, fn(x) -> {x, Enum.count(split, fn(c) -> c == x end)} end)
-  end
+  end 
 
   defp ignore_punctuation_and_case(sentence) do
     sentence

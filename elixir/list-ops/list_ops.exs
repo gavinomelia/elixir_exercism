@@ -22,7 +22,7 @@ defmodule ListOps do
 
   defp do_filter([], acc, _fun), do: reverse(acc)
   defp do_filter([head|tail], acc, fun) do
-    if (fun.(head)) == true do
+    if (fun.(head)) do
     do_filter(tail, [head|acc], fun)
   else
     do_filter(tail, acc, fun)
