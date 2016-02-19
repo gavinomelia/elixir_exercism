@@ -25,24 +25,4 @@ defmodule Sublist do
 
   defp do_contained([], _b, _acc), do: false
 
-  # defp is_sublist?(a, b) do
-  #   do_sublist(a, b, 0)
-  # end
-  #
-  # defp do_sublist([], [], acc) do
-  #   if acc > 2 do
-  #     true
-  #   else
-  #     false
-  #   end
-  # end
-  #
-  # defp do_sublist([head|atail], [head|btail], acc) do
-  #   acc + 1
-  #   do_sublist(atail, btail, acc)
-  # end
-  #
-  # defp do_sublist([ahead|atail], [bhead|btail], acc) do
-  #   do_sublist(atail, btail, acc)
-  # end
 end
