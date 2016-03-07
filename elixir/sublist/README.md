@@ -1,4 +1,6 @@
 # Sublist
+Returns whether the first list is a sublist or a superlist of the second list
+and if not whether it is equal or unequal to the second list.
 
 Write a function to determine if a list is a sublist of another list.
 

@@ -1,28 +1,24 @@
 defmodule Sublist do
-  @doc """
-  Returns whether the first list is a sublist or a superlist of the second list
-  and if not whether it is equal or unequal to the second list.
-  """
   def compare(a, a), do: :equal
   def compare(a, b) do
-    if is_contained?(a, b) do
-      :sublist
+    if Enum.count(a) < Enum.count(b) do
+    cond do
+      is_contained?(a, b) ->
+        :sublist
+      true ->
+        :unequal
+      end
+    else
+      cond do
+        is_contained?(b, a) ->
+          :superlist
+        true ->
+          :unequal
+        end
+      end
     end
-  end
-
 
   def is_contained?(a, b) do
-    do_contained(a, b, [])
+    Enum.all?(a, fn(x) -> Enum.member?(b, x) end)
   end
-
-  defp do_contained([head|tail], b, acc) do
-    if Enum.member?(b, head) do
-      do_contained(tail, b, [head|acc])
-    end
-  end
-
-  defp do_contained(_a, _b, [_c, _d, _e]), do: true
-
-  defp do_contained([], _b, _acc), do: false
-
 end
