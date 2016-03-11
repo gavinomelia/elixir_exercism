@@ -9,29 +9,29 @@ defmodule Anagram do
     do_anagram(base, words, [])
   end
 
-  defp do_anagram(base, [word|other_words], acc) do
-    if each_letter_matches?(base, word) do
-      do_anagram(base, other_words, [word|acc])
-    else
-      do_anagram(base, other_words, acc)
+  defp do_anagram(b, [w|other_words], acc) do
+    base = String.downcase(b)
+    word = String.downcase(w)
+    cond do
+      base == word ->
+        do_anagram(b, other_words, acc)
+      each_letter_matches?(base, word) ->
+        do_anagram(b, other_words, [w|acc])
+      true ->
+        do_anagram(b, other_words, acc)
     end
   end
   defp do_anagram(_, [], acc), do: acc |> Enum.reverse
 
-  defp each_letter_matches?(base, word), do: do_each_letter_matches?(base, word, 0)
+  defp split_it_up(word), do: String.codepoints(word)
 
-  defp do_each_letter_matches?(base, word, acc) do
-    # IO.puts "\nacc: #{acc}"
-    # IO.puts "length: #{String.length(base)}"
-    # IO.puts "base: #{base}"
-    # IO.puts "word: #{word}"
-    letter = String.at(base, acc)
-    # IO.puts "letter: #{letter}"
-    cond do
-      String.length(word) == acc -> true
-      letter == nil -> false
-      String.contains?(word, letter) -> do_each_letter_matches?(base, word, acc + 1)
-      true -> false
+  defp each_letter_matches?(base, word) do
+    sorted_base = split_it_up(base) |> Enum.sort
+    sorted_word = split_it_up(word) |> Enum.sort
+    if sorted_base == sorted_word do
+      true
+    else
+      false
     end
   end
 end
