@@ -5,24 +5,21 @@ else
 end
 
 ExUnit.start
-ExUnit.configure exclude: :pending, trace: true
+ExUnit.configure exclude: :pending, trace: false
 
 defmodule AnagramTest do
   use ExUnit.Case
 
-  # @tag :pending
   test "no matches" do
     matches = Anagram.match "diaper", ["hello", "world", "zombies", "pants"]
     assert matches == []
   end
 
-  @tag :pending
   test "detect simple anagram" do
     matches = Anagram.match "ant", ["tan", "stand", "at"]
     assert matches == ["tan"]
   end
 
-  @tag :pending
   test "detect multiple anagrams" do
     matches = Anagram.match "master", ["stream", "pigeon", "maters"]
     assert matches == ["stream", "maters"]

@@ -1,5 +1,5 @@
 # Anagram
-
+Returns all candidates that are anagrams of, but not equal to, 'base'.
 Write a program that, given a word and a list of possible anagrams, selects the correct sublist.
 
 Given `"listen"` and a list of candidates like `"enlists" "google"
