@@ -1,9 +1,7 @@
 defmodule Anagram do
-  # @spec match(String.t, [String.t]) :: [String.t]
   def match(base, words) do
     anagram(base, words)
   end
-
 
   def anagram(base, words) do
     do_anagram(base, words, [])
