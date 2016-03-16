@@ -11,18 +11,12 @@ defmodule DNA do
       Enum.any?(strand, fn(x) -> (Enum.member?(@nucleotides, x) == false) end) ->
         raise ArgumentError
       (Enum.member?(@nucleotides, nucleotide) == false) ->
-        raise ArgumentError
+          raise ArgumentError
       true -> true
-      end
     end
+  end
 
   def histogram(strand) do
-    do_histogram(strand, @nucleotides, %{})
-  end
-  defp do_histogram(strand, [head|tail], acc) do
-    do_histogram(strand, tail, Map.put(acc, head, count(strand, head)))
-  end
-  defp do_histogram(_, [], acc) do
-    acc
+    Enum.reduce(@nucleotides, %{}, fn(x, acc) -> Map.put(acc, x, count(strand, x)) end)
   end
 end
