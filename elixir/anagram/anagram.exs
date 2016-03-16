@@ -21,10 +21,9 @@ defmodule Anagram do
   end
   defp do_anagram(_, [], acc), do: acc |> Enum.reverse
 
-  defp split_it_up(string), do: String.codepoints(word)
-  defp sort_it_up(string), do: split_it_up(string) |> Enum.sort
+  defp split_and_sort_it_up(string), do: String.codepoints(string) |> Enum.sort
 
   defp each_letter_matches?(base, word) do
-    split_it_up(base) |> sort_it_up == split_it_up(word) |> sort_it_up
+    split_and_sort_it_up(base) == split_and_sort_it_up(word)
   end
 end
