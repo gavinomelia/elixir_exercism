@@ -3,7 +3,7 @@ if !System.get_env("EXERCISM_TEST_EXAMPLES") do
 end
 
 ExUnit.start
-ExUnit.configure exclude: :pending, trace: true
+ExUnit.configure exclude: :pending, trace: false
 
 defmodule PhoneTest do
   use ExUnit.Case
@@ -12,7 +12,6 @@ defmodule PhoneTest do
     assert Phone.number("(123) 456-7890") == "1234567890"
   end
 
-  @tag :pending
   test "cleans number with dots" do
     assert Phone.number("123.456.7890") == "1234567890"
   end
