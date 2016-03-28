@@ -3,13 +3,9 @@ defmodule Phone do
     clean(raw) |> valid_check
   end
 
-  defp valid_check(clean_num) when byte_size(clean_num) == 10 do
-    clean_num
-  end
-  defp valid_check("1" <> rest), do: valid_check(rest)
-  defp valid_check(clean_num) when byte_size(clean_num) != 10 do
-    "0000000000"
-  end
+  defp valid_check(clean_num) when byte_size(clean_num) == 10, do: clean_num
+  defp valid_check("1" <> rest) when byte_size(rest) == 10, do: rest
+  defp valid_check(_), do: "0000000000"
 
   defp clean(raw), do: String.replace(raw, ~r/(\W)/, "")
 

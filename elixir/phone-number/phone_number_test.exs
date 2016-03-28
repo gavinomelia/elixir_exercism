@@ -32,6 +32,10 @@ defmodule PhoneTest do
     assert Phone.number("1a2a3a4a5a6a7a8a9a0a") == "0000000000"
   end
 
+  test "multiple ones" do
+    assert Phone.number("111238523799") == "0000000000"
+  end
+
   test "area code" do
     assert Phone.area_code("1234567890") == "123"
   end
