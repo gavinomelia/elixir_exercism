@@ -1,6 +1,16 @@
 # Grade School
+Simulate students in a school.
+
+Each student is in a grade.
 
 Write a small archiving program that stores students' names along with the grade that they are in.
+
+### Add
+Add a student to a particular grade in school.
+### Grade
+Return the names of the students in a particular grade.
+### Sort
+Sorts the school by grade and name.
 
 In the end, you should be able to:
 
