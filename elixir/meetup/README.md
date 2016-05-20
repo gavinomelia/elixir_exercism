@@ -1,4 +1,4 @@
-˚# Meetup
+# Meetup
 
 Calculate a meetup date.
 
