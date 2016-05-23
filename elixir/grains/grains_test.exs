@@ -13,11 +13,6 @@ ExUnit.configure exclude: :pending, trace: false
 
 defmodule GrainsTest do
   use ExUnit.Case
-
-  # test "power" do
-  #   assert Grains.square(8) === 64
-  # end
-
   test "square 1" do
     assert Grains.square(1) === 1
   end
