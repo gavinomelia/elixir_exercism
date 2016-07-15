@@ -8,31 +8,26 @@ ExUnit.configure exclude: :pending, trace: false
 defmodule SaddlePointsTest do
   use ExUnit.Case
 
-  # @tag :pending
   test "extract rows" do
     rows = Matrix.rows("1 2\n10 20")
     assert rows == [[1, 2], [10, 20]]
   end
 
-  @tag :pending
   test "extract a row" do
     rows = Matrix.rows("9 7\n8 6")
     assert Enum.at(rows, 0) == [9, 7]
   end
 
-  @tag :pending
   test "extract other row" do
     rows = Matrix.rows("9 8 7\n19 18 17")
     assert Enum.at(rows, 1) == [19, 18, 17]
   end
 
-  @tag :pending
   test "extract other row again" do
     rows = Matrix.rows("1 4 9\n16 25 36")
     assert Enum.at(rows, 1) == [16, 25, 36]
   end
 
-  @tag :pending
   test "extract a column" do
     columns = Matrix.columns("1 2 3\n4 5 6\n7 8 9\n8 7 6")
     assert Enum.at(columns, 0) == [1, 4, 7, 8]
