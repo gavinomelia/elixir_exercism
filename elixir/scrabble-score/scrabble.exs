@@ -7,12 +7,8 @@ defmodule Scrabble do
     word
     |> String.upcase
     |> String.trim
-    |> do_score
-  end
-
-  def do_score(word) do
-    letter_list = String.to_charlist(word)
-    number_list = Enum.map(letter_list, fn(x) -> @map[x] end)
-    Enum.sum(number_list)
+    |> String.to_charlist
+    |> Enum.map(fn(x) -> @map[x] end)
+    |> Enum.sum
   end
 end
